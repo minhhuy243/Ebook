@@ -262,8 +262,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`User_Id`, `User_Role`, `Email`, `Password`, `Display_Name`, `Phonenumber`) VALUES
-(1, 1, 'admin@ebook.com', 'c3284d0f94606de1fd2af172aba15bf3', 'Admin website', '0123456789'),
-(2, 0, 'nnd@ebook.com', 'a90a53fab66b41897417f26795d4e1a7', 'NND', '0345678912'),
+(1, 1, 'admin@ebook.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin website', '0123456789'),
+(2, 0, 'nnd@ebook.com', 'e3df5aea6b2ef20ba65e35811c38a43b', 'NND', '0345678912'),
 (3, 0, 'lmh@ebook.com', '78bc33b76c96dd9b74f85db936aacc7f', 'LMH', '0123456798');
 
 -- --------------------------------------------------------
