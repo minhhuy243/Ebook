@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Admin Account</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
-        <meta content="Coderthemes" name="author">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/ebook-logo.ico">
-
-        <!-- plugin css -->
-        <link href="assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
-
-        <!-- App css -->
-        <link href="assets\css\bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets\css\icons.min.css" rel="stylesheet" type="text/css">
-        <link href="assets\css\app.min.css" rel="stylesheet" type="text/css">
-        
-
-    </head>
-
-    <body>
-
+<php>
         <!-- Begin page -->
         <div id="wrapper">
 
@@ -44,7 +20,7 @@
                             </div>
                         </form>
                     </li>
-        
+
                     
                     <!-- setting user -->
                     <li class="dropdown notification-list">
@@ -112,7 +88,7 @@
                 
             </div>
             <!-- end Topbar -->
-
+            
             <!-- ========== Left Sidebar Start ========== -->
             <div class="left-side-menu">
 
@@ -133,11 +109,17 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
+                                    <?php
+                                    {
+                                        ?>
+                                            <li>
+                                                <a href="index.php?act=1">Show All</a>
+                                            </li>
+                                        <?php
+                                    }
+                                    ?>
                                     <li>
-                                        <a href="./list_account.php">Show All</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Add Account</a>
+                                        <a href="index.php?act=1&sub=4">Add Account</a>
                                     </li>
 
                                 </ul>
@@ -153,11 +135,17 @@
                                     
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
+                                    <?php
+                                    {
+                                        ?>
+                                            <li>
+                                                <a href="index.php?act=2">All Publishing</a>
+                                            </li>
+                                        <?php
+                                    }
+                                    ?>
                                     <li>
-                                        <a href="#">All Publishing</a>
-                                    </li>   
-                                    <li>
-                                        <a href="#">Add Publishing</a>
+                                        <a href="index.php?act=2&sub=4">Add Publishing</a>
                                     </li>
 
                                 </ul>
@@ -172,11 +160,17 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
+                                    <?php
+                                    {
+                                        ?>
+                                            <li>
+                                                <a href="index.php?act=3">All Category</a>
+                                            </li>
+                                        <?php
+                                    }
+                                    ?>
                                     <li>
-                                        <a href="#">All Category</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Add Category</a>
+                                        <a href="index.php?act=3&sub=4">Add Category</a>
                                     </li>
 
                                 </ul>
@@ -191,11 +185,17 @@
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
+                                    <?php
+                                    {
+                                        ?>
+                                            <li>
+                                                <a href="index.php?act=4">All Product</a>
+                                            </li>
+                                        <?php
+                                    }
+                                    ?>
                                     <li>
-                                        <a href="#">All Product</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Add Product</a>
+                                        <a href="index.php?act=4&sub=4">Add Product</a>
                                     </li>
 
                                 </ul>
@@ -204,11 +204,20 @@
 
                             <!-- Quản lý đơn hàng -->
                             <li>
-                                <a href="javascript: void(0);">
-                                    <i class=" la la-money"></i>
-                                    <span> Purchase </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
+                                <?php
+                                    {
+                                        ?>
+                                            <li>
+                                                <a href="index.php?act=5">
+                                                    <i class=" la la-money"></i>
+                                                    <span> Purchase </span> 
+                                                    <span class="menu-arrow"></span>
+                                                </a>
+                                            </li>
+                                        <?php
+                                    }
+                                ?>
+                                
                             </li>
 
 
@@ -225,92 +234,6 @@
             </div>
             <!-- Left Sidebar End -->
 
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
-
-            <div class="content-page">
-                <div class="content">
-
-                    <!-- Start Content-->
-                    <div class="container-fluid">
-                        
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Ebook</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                            <li class="breadcrumb-item active">Account</li>
-                                        </ol>
-                                    </div>
-                                    <h4 class="page-title">Account</h4>
-                                </div>
-                            </div>
-                        </div>     
-                        <!-- end page title --> 
-                        
-                        <table>
-                            <tr style="text-align: center">
-                                <th width="70">User Id</th>
-                                <th width="100">User role</th>
-                                <th width="200">Email</th>
-                                <th width="150">Password</th>
-                                <th width="200"> Display name</th>
-                                <th width="150">Phone number</th>
-                                <th width="100">Thao tác</th>
-                            </tr>
-                            <?php
-                                include('../DBConnect.php');
-                                $sql = "SELECT u.*, r.role_name FROM user u, user_role r WHERE u.User_Role = r.Role_Id";
-                                $bang = DataProvider::ExecuteQuery($sql);
-                                while($row = mysqli_fetch_array($bang))
-                                {
-                                    ?>
-                                        <tr style="text-align: center;"> 
-                                            <td><?php echo $row["User_Id"]; ?></td>
-                                            <td><?php echo $row["role_name"]; ?></td>
-                                            <td><?php echo $row["Email"]; ?></td>
-                                            <td><?php echo md5($row["Password"]); ?></td>
-                                            <td><?php echo $row["Display_Name"]; ?></td>
-                                            <td><?php echo $row["Phonenumber"]; ?></td>
-                                            <td>
-                                                <a href="#">
-                                                    <i class="far fa-edit"></i>
-                                                    <span>Edit</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                }
-                            ?>	
-                        </table>
-
-                        
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-                <!-- Footer Start -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                2019 &copy; Upvex theme by <a href="">Coderthemes</a> 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-right footer-links d-none d-sm-block">
-                                    <a href="javascript:void(0);">About Us</a>
-                                    <a href="javascript:void(0);">Help</a>
-                                    <a href="javascript:void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- end Footer -->
 
             </div>
 
@@ -320,22 +243,4 @@
 
         </div>
         <!-- END wrapper -->
-
-        
-        <!-- Vendor js -->
-        <script src="assets\js\vendor.min.js"></script>
-
-        <!-- Third Party js-->
-        <script src="assets\libs\peity\jquery.peity.min.js"></script>
-        <script src="assets\libs\apexcharts\apexcharts.min.js"></script>
-        <script src="assets\libs\jquery-vectormap\jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets\libs\jquery-vectormap\jquery-jvectormap-us-merc-en.js"></script>
-
-        <!-- Dashboard init -->
-        <script src="assets\js\pages\dashboard-1.init.js"></script>
-
-        <!-- App js -->
-        <script src="assets\js\app.min.js"></script>
-        
-    </body>
-</html>
+</php>
