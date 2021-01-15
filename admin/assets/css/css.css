@@ -44,4 +44,9 @@
 
 table {
   border-spacing: 5px
+  
+}
+
+form fieldset input{
+  width:  300px;
 }

@@ -1,5 +1,7 @@
 <?php
 	include("../../../DBConnect.php");
+
+
 	if(isset($_GET["id"]) == true)
 	{
 		$id = $_GET["id"];
@@ -8,7 +10,7 @@
         $phone = $_GET["txtPhonenumber"];
         $pass = $_GET["txtPassword"];
 		
-		$sql = "UPDATE `ebook`.`user` SET `Display_Name` = '$ten', `Email`='$email', `Phonenumber`='$phone', `Password`='md5($pass)' WHERE User_Id = $id";
+		$sql = "UPDATE `ebook`.`user` SET `Display_Name` = '$name', `Email`='$email', `Phonenumber`='$phone', `Password`='$pass' WHERE User_Id = $id";
 		DataProvider::ExecuteQuery($sql);	
 	}
 	DataProvider::ChangeURL('../../index.php?act=1');

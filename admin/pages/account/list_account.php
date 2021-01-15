@@ -25,7 +25,7 @@
                         <!-- end page title --> 
                         
                         <table>
-                            <tr style="text-align: center">
+                            <tr style="text-align: center; font-size: 14px">
                                 <th width="70">User Id</th>
                                 <th width="100">User role</th>
                                 <th width="200">Email</th>
@@ -68,3 +68,4 @@
                     </div> <!-- container -->
 
                 </div> <!-- content -->
+            </div>
