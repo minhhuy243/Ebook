@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+	
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,7 @@
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		<title>EBook - Mua sách trực tuyến</title>
-		<!-- App favicon -->
-		<link rel="shortcut icon" href="./admin/assets/images/ebook-logo.ico">
-
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -63,7 +62,22 @@
 						break;
 					case "DangNhap":
 						include('pages/pDangNhap.php');
-						break;					
+						break;
+					case "DangKy":
+						include('pages/pDangKy.php');
+						break;
+					case "QuanLy":
+						include('pages/pQuanLy.php');
+						break;
+					case "XacMinh":
+						include('pages/pXacMinh.php');
+						break;
+					case "ThongBao":
+						include('pages/pThongBao.php');
+						break;
+					case "ThanhToan":
+						include('pages/pThanhToan.php');
+						break;								
 					default:
 						include('pages/pIndex.php');
 						break;
@@ -161,6 +175,7 @@
 			});
 		</script>
 
+
 		<script>
 			
 			$(".dsSanPham-GioHang").on('change, click', function() {
@@ -180,9 +195,7 @@
 						},
 						dataType: "text",
 						success: function(data){
-
 							data = new Intl.NumberFormat('de-DE').format(data);
-
 							tongTien.html(data);
 						},
 						error: function (xhr, ajaxOptions, thrownError) {
@@ -192,6 +205,80 @@
 
 				
 				
+			});
+		</script>
+
+		<script>
+
+			$("#submitFrmDK").on("click", function(e) {
+				e.preventDefault();
+				var siteKey = grecaptcha.getResponse();
+				if(siteKey === ""){
+					$('#message-error').html('Vui lòng nhập Captcha');		
+				}
+				else{
+					$.ajax({
+						url: "pages-handle/xlCaptcha.php",
+						method: "POST",					
+						data: {
+							grecaptcharesponse: grecaptcha.getResponse(),
+						},
+						success: function(response) {						
+							if(response === "Thành công"){
+								var result = validateFormDangKy();
+
+								if(result == true){
+									$("#frmDangKy").submit();
+								}
+								else{
+									$('#message-error').html('Dữ liệu bạn nhập chưa hợp lệ !');
+								}												
+							}
+							else{
+								$('#message-error').html(response);	
+							}
+						},
+						error: function (xhr, ajaxOptions, thrownError) {
+							console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						},
+					});
+				}
+				
+			});
+			
+		</script>
+
+		<script>
+			$('#password, #confirm-password').on('keyup', function() {
+				var password = $('#password').val();
+				var confirm_password = $('#confirm-password').val();
+
+				if(password != confirm_password){
+					$('#confirm-password').css('border-color', "red");
+				}
+				else{
+					$('#confirm-password').css('border-color', "green");
+				}
+			});
+		</script>
+
+		<script>
+			$('#username, #passwordLogin').on('keyup', function() {
+				var username = $('#username').val();
+				var password = $('#passwordLogin').val();
+
+				if(username == ""){
+					$('#username').css('border-color', "red");
+				}
+				if(password == ""){
+					$('#passwordLogin').css('border-color', "red");
+				}
+				if(username != ""){
+					$('#username').css('border-color', "");
+				}
+				if(password != ""){
+					$('#passwordLogin').css('border-color', "");
+				}
 			});
 		</script>
 		

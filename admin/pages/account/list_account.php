@@ -26,11 +26,12 @@
                         
                         <table>
                             <tr style="text-align: center; font-size: 14px">
-                                <th width="70">User Id</th>
+                                <th width="100">User Id</th>
                                 <th width="100">User role</th>
                                 <th width="200">Email</th>
                                 <th width="150">Password</th>
-                                <th width="200"> Display name</th>
+                                <th width="200">First name</th>
+                                <th width="200">Last name</th>
                                 <th width="150">Phone number</th>
                                 <th width="200">Acction</th>
                             </tr>
@@ -38,6 +39,7 @@
                                 // include('../DBConnect.php');
                                 $sql = "SELECT u.*, r.role_name FROM user u, user_role r WHERE u.User_Role = r.Role_Id";
                                 $bang = DataProvider::ExecuteQuery($sql);
+
                                 while($row = mysqli_fetch_array($bang))
                                 {
                                     ?>
@@ -46,7 +48,8 @@
                                             <td><?php echo $row["role_name"]; ?></td>
                                             <td><?php echo $row["Email"]; ?></td>
                                             <td><?php echo $row["Password"]; ?></td>
-                                            <td><?php echo $row["Display_Name"]; ?></td>
+                                            <td><?php echo $row["First_Name"]; ?></td>
+                                            <td><?php echo $row["Last_Name"]; ?></td>
                                             <td><?php echo $row["Phonenumber"]; ?></td>
                                             <td>
                                                 <a href="index.php?act=1&sub=3&id=<?php echo $row["User_Id"]; ?>">

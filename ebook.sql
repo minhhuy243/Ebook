@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th1 08, 2021 lúc 07:30 AM
+-- Thời gian đã tạo: Th1 18, 2021 lúc 03:35 PM
 -- Phiên bản máy phục vụ: 5.7.31
 -- Phiên bản PHP: 7.3.21
 
@@ -47,50 +47,6 @@ INSERT INTO `category` (`Category_Id`, `Category_Name`) VALUES
 ('TL-KNS', 'Tâm Lý - Kỹ Năng Sống'),
 ('TN', 'Thiếu Nhi'),
 ('VH', 'Văn Học');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `orderdetail`
---
-
-DROP TABLE IF EXISTS `orderdetail`;
-CREATE TABLE IF NOT EXISTS `orderdetail` (
-  `OrderDetail_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Order_Id` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `Product_Id` datetime NOT NULL,
-  `Price` datetime DEFAULT NULL,
-  `Quantity` int(11) DEFAULT NULL,
-  PRIMARY KEY (`OrderDetail_Id`),
-  KEY `Order_Id` (`Order_Id`),
-  KEY `Product_Id` (`Product_Id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `orderstate`
---
-
-DROP TABLE IF EXISTS `orderstate`;
-CREATE TABLE IF NOT EXISTS `orderstate` (
-  `OrderState_Key` int(11) NOT NULL,
-  `Value` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `Description` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `DisplayText` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  PRIMARY KEY (`OrderState_Key`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `orderstate`
---
-
-INSERT INTO `orderstate` (`OrderState_Key`, `Value`, `Description`, `DisplayText`) VALUES
-(-1, 'All', 'Tất cả trạng thái', 'Tất cả'),
-(1, 'New', 'Đơn hàng mới được tạo', 'Mới tạo'),
-(2, 'Completed', 'Khách hàng đã thanh toán', 'Đã thanh toán'),
-(3, 'Cancelled', 'Đơn hàng đã hủy', 'Đã hủy'),
-(4, 'Shipping', 'Đã thanh toán và đã giao', 'Đã giao');
 
 -- --------------------------------------------------------
 
@@ -227,15 +183,86 @@ INSERT INTO `publishing_company` (`Publishing_Company_Id`, `Publishing_Company_N
 DROP TABLE IF EXISTS `purchase`;
 CREATE TABLE IF NOT EXISTS `purchase` (
   `Purchase_Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Customer` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `CreatedAt` datetime DEFAULT NULL,
-  `UpdatedAt` datetime DEFAULT NULL,
-  `Total` decimal(19,4) DEFAULT NULL,
-  `Standing` int(11) DEFAULT NULL,
-  `DeliveryAdress` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
-  PRIMARY KEY (`Purchase_Id`),
-  KEY `Standing` (`Standing`)
+  `User_Id` int(11) DEFAULT NULL,
+  `Name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `DeliveryAddress` varchar(500) CHARACTER SET utf8 DEFAULT NULL,
+  `PhoneNumber` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CreatedAt` date DEFAULT NULL,
+  `UpdatedAt` date DEFAULT NULL,
+  `Total` int(11) DEFAULT NULL,
+  `State` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Purchase_Id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `purchase`
+--
+
+INSERT INTO `purchase` (`Purchase_Id`, `User_Id`, `Name`, `DeliveryAddress`, `PhoneNumber`, `Email`, `CreatedAt`, `UpdatedAt`, `Total`, `State`) VALUES
+(1, 1, 'Lưu Minh Huy', '96/2, Quận TB', '0373829264', 'minhhuy243@gmail.com', '2021-01-18', NULL, 0, 1),
+(2, 1, 'Lưu Minh Huy', '96/2, Quận TB', '0373829264', 'minhhuy243@gmail.com', '2021-01-18', NULL, 118000, 1),
+(3, 1, 'Lưu Minh Huy', '96/2, Quận TB', '0373829264', 'minhhuy243@gmail.com', '2021-01-18', NULL, 275000, 1),
+(4, 1, 'Lưu Minh Huy', '96/2, Quận TB', '0373829264', 'minhhuy243@gmail.com', '2021-01-18', NULL, 275000, 1),
+(5, 1, 'Lưu Minh Huy', '96/2, Quận TB', '0373829264', 'minhhuy243@gmail.com', '2021-01-18', NULL, 275000, 1),
+(6, 1, 'Lưu Minh Huy', '96/2, Quận TB', '0373829264', 'minhhuy243@gmail.com', '2021-01-18', NULL, 118248, 1),
+(7, 1, 'Lưu Minh Huy', '96/2, Quận TB', '0373829264', 'minhhuy243@gmail.com', '2021-01-18', NULL, 248, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `purchasedetail`
+--
+
+DROP TABLE IF EXISTS `purchasedetail`;
+CREATE TABLE IF NOT EXISTS `purchasedetail` (
+  `Purchase_Id` int(11) NOT NULL,
+  `Product_Id` int(11) NOT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `TotalAmount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Purchase_Id`,`Product_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `purchasedetail`
+--
+
+INSERT INTO `purchasedetail` (`Purchase_Id`, `Product_Id`, `Quantity`, `TotalAmount`) VALUES
+(3, 27, 1, 118000),
+(3, 51, 1, 95000),
+(3, 52, 1, 62000),
+(4, 27, 1, 118000),
+(4, 51, 1, 95000),
+(4, 52, 1, 62000),
+(6, 26, 1, 248),
+(6, 27, 1, 118000),
+(7, 26, 1, 248);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `purchasestate`
+--
+
+DROP TABLE IF EXISTS `purchasestate`;
+CREATE TABLE IF NOT EXISTS `purchasestate` (
+  `PurchaseState_Key` int(11) NOT NULL,
+  `Value` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `Description` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `DisplayText` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`PurchaseState_Key`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `purchasestate`
+--
+
+INSERT INTO `purchasestate` (`PurchaseState_Key`, `Value`, `Description`, `DisplayText`) VALUES
+(-1, 'All', 'Tất cả trạng thái', 'Tất cả'),
+(1, 'Confirm', 'Đơn hàng đang được xác nhận', 'Đang xác nhận'),
+(2, 'Shipping', 'Đơn hàng đang được giao', 'Đang giao'),
+(3, 'Cancelled', 'Đơn hàng đã bị huỷ', 'Đã hủy'),
+(4, 'Delivered', 'Đơn hàng đã giao thành công', 'Giao thành công');
 
 -- --------------------------------------------------------
 
@@ -249,22 +276,29 @@ CREATE TABLE IF NOT EXISTS `user` (
   `User_Role` int(2) NOT NULL,
   `Email` varchar(50) CHARACTER SET utf8 NOT NULL,
   `Password` varchar(10000) CHARACTER SET utf8 DEFAULT NULL,
-  `Display_Name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `Last_Name` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `First_Name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Phonenumber` varchar(12) CHARACTER SET utf8 DEFAULT NULL,
+  `Verification_Code` varchar(264) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Verified` int(11) DEFAULT NULL,
   PRIMARY KEY (`User_Id`),
   UNIQUE KEY `Email` (`Email`),
-  UNIQUE KEY `Phonenumber` (`Phonenumber`),
   KEY `User_Role` (`User_Role`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`User_Id`, `User_Role`, `Email`, `Password`, `Display_Name`, `Phonenumber`) VALUES
-(1, 1, 'admin@ebook.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin website', '0123456789'),
-(2, 0, 'nnd@ebook.com', 'e3df5aea6b2ef20ba65e35811c38a43b', 'NND', '0345678912'),
-(3, 0, 'lmh@ebook.com', '78bc33b76c96dd9b74f85db936aacc7f', 'LMH', '0123456798');
+INSERT INTO `user` (`User_Id`, `User_Role`, `Email`, `Password`, `Last_Name`, `First_Name`, `Address`, `Phonenumber`, `Verification_Code`, `Verified`) VALUES
+(1, 1, 'admin@ebook.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'Admin', NULL, '', NULL, 1),
+(2, 0, 'nnd@ebook.com', 'a90a53fab66b41897417f26795d4e1a7', 'NND', NULL, NULL, '0345678912', NULL, NULL),
+(3, 0, 'lmh@ebook.com', '78bc33b76c96dd9b74f85db936aacc7f', 'LMH', NULL, NULL, '0123456798', NULL, NULL),
+(5, 0, 'abc@ebook.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 0, '$email', '$password', '$last_name', '$first_name', '$address', '$phone', '$verificationCode', 0),
+(7, 0, 'minhhuy243@gmail.com', '202cb962ac59075b964b07152d234b70', 'Minh Huy', 'Lưu', '96/2', '0373829264', 'f77f5bbf3b74e808b283c7a872057ceb', 1),
+(10, 0, 'huylk243@gmail.com', '202cb962ac59075b964b07152d234b70', 'Minh Huy', 'Lưu', '96/2', '0373829264', '0d58ecb945704d7db67c521f6d931393', 1);
 
 -- --------------------------------------------------------
 

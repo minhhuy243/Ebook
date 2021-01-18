@@ -8,19 +8,36 @@
 			<div class="col-md text-center">
 				<!-- Billing Details -->
 				<div class="billing-details">
+
 					<div class="section-title">
 						<h3 class="title">Đăng nhập</h3>
 					</div>
-					<div class="form-group">
-						<input class="input-login" type="text" name="first-name" placeholder="Tên tài khoản">
-					</div>
-					<div class="form-group">
-						<input class="input-login" type="password" name="last-name" placeholder="Mật khẩu">
-					</div>
+					
+					<?php
+						if(isset($_GET["error"]))
+						{		
+							if($_GET["error"] == "ChuaXacMinh")					
+								echo '<p class="error"> Vui lòng kiểm tra Email của bạn để xác minh tài khoản </p>';
+							elseif($_GET["error"] == "ChuaTonTai")
+								echo '<p class="error"> Tài khoản không tồn tại </p>';
+							elseif($_GET["error"] == "txbRong")
+								echo '<p class="error"> Vui lòng nhập đầy đủ thông tin </p>';
+						}						
+					?>
+					
+					<form action="./pages-handle/xlDangNhap.php" method="POST">
+						<div class="form-group">
+							<input class="input-login" type="text" id="username" name="username" placeholder="Tên tài khoản" required>
+						</div>
+						
+						<div class="form-group">
+							<input class="input-login" type="password" id="passwordLogin" name="password" placeholder="Mật khẩu" required>
+						</div>
 
-					<a href="#" class="primary-btn order-submit" style="margin-right: 20px;">Đăng nhập
-						<span><a href="#">Nhấp vào đây để đăng ký tài khoản</a></span>
-					</a>
+						<button type="submit" name="login" class="primary-btn order-submit">Đăng nhập</button>
+						<a href="index.php?page=DangKy">Nhấp vào đây để đăng ký tài khoản</a>
+					</form>
+
 				</div>
 
 			</div>

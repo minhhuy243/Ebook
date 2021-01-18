@@ -2,7 +2,7 @@
     //include '..\DBConnect.php';
     $href = "";
     $sql = "";
-
+    
     #Hiển thị sản phẩm theo từ khoá tìm kiếm
     if($_REQUEST['view'] == "search"){
         if (isset($_REQUEST['q'])){          

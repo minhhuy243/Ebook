@@ -30,10 +30,13 @@
 <form style="margin: 0 auto; width:300px; font-size: 14px " action="pages/account/editHandle.php" method="get">
 	<fieldset>
         <legend>Account info</legend>
-        Name
-        <input style="margin-bottom:7px;" class="form-control" type="text" name="txtDisplay_name" value="<?php echo $dong["Display_Name"]; ?>" />
+        First Name
+        <input style="margin-bottom:7px;" class="form-control" type="text" name="txtFirst_name" value="<?php echo $dong["First_Name"]; ?>" />
         <input type="hidden" name="id" value="<?php echo $id;?>" />
-        
+    </fieldset>
+    <fieldset>
+        Last Name
+        <input style="margin-bottom:7px;" class="form-control" type="text" name="txtLast_name" value="<?php echo $dong["Last_Name"]; ?>" />
     </fieldset>
     <fieldset>
         Email

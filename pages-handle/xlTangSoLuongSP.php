@@ -1,5 +1,6 @@
 <?php 
-session_start();
+
+    session_start();
 
     if(isset($_POST['tenSP'])){
         $tenSP = $_POST['tenSP'];
@@ -8,9 +9,15 @@ session_start();
         
         foreach ($_SESSION['cart'] as $key => $value){
             if($value['name'] == $tenSP){
+                #Trừ đi tổng tiền của sp lúc chưa cập nhật lại số lượng
+                $_SESSION['subTotal'] -= $_SESSION['cart'][$key]['quantity'] * $_SESSION['cart'][$key]['price'];
+
+                #Cập nhật lại số lượng của sp đó
                 $_SESSION['cart'][$key]['quantity'] = $soLuong;
-                $tongTien = $_SESSION['cart'][$key]['quantity'] * $_SESSION['cart'][$key]['price'];
-                $_SESSION['subTotal'] += number_format($tongTien, 0, '.', '.') ;
+                #Tính lại tổng tiền
+                $tongTien = $soLuong * $_SESSION['cart'][$key]['price'];
+                #Thêm tổng tiền sp đó vào SESSION tạm tính
+                $_SESSION['subTotal'] += $tongTien;
             }
         }
 

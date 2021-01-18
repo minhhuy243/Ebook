@@ -71,7 +71,7 @@ if(isset($_SESSION['cart']))
         $tongtien += $value['price'] * $value['quantity'];
     }
 
-    $_SESSION['subTotal'] = number_format($tongtien, 0, '.', '.');
+    $_SESSION['subTotal'] = $tongtien;
 }
 
 $slSanPham = count($_SESSION['cart']);

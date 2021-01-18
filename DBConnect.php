@@ -47,6 +47,19 @@ function LoadData($sql)
     return $result;
 }
 
+function Insert($sql)
+{
+    global $conn;
+    OpenConnection();  
+
+    $query = mysqli_query($conn, $sql); 
+     
+    if ($query)
+        return true;
+    #CloseConnection();
+    return false;
+}
+
 class DataProvider 
 {
 	public static function ExecuteQuery($sql)

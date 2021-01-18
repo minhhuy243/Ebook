@@ -1,17 +1,18 @@
 <!-- SECTION -->
-<div class="section">
+<div class="section" id="sectionGioHang">
 	<!-- container -->
 	<div class="container">
 		<form>
+
 		<!-- row -->
-		<div class="row" >
+		<div class="row">
 			<div class="col-md-9">
 
 				<div class="section-title">
 					<h3 class="title">Giỏ hàng</h3>
 				</div>
 					
-				<div id="sectionGioHang"  class="card">
+				<div class="card">
 					<table class="table table-hover">
 						<thead class="text-muted">
 							<tr>
@@ -25,7 +26,8 @@
 
 						<tbody>
 						<?php
-							foreach ($_SESSION['cart'] as $key => $value){											
+							if(isset($_SESSION['cart'])){
+								foreach ($_SESSION['cart'] as $key => $value){											
 						?>
 							<tr class="dsSanPham-GioHang">
 								<td>
@@ -50,26 +52,26 @@
 
 								<td class="text-center">
 									<div class="price-wrap">
-										<var class="price"><?php echo number_format($value['price'], 0, '.', '.') ?></var>
+										<var class="price"><?php echo number_format($value['price'], 0, '.', '.') . ' ₫' ?></var>
 									</div>
 								</td>
 
 								<td class="text-center">
-									<strong class="tongTien1SP-GioHang"><?php echo number_format($value['price'] * $value['quantity'], 0, '.', '.') ?></strong>
+									<strong class="tongTien1SP-GioHang"><?php echo number_format($value['price'] * $value['quantity'], 0, '.', '.') . ' ₫' ?></strong>
 								</td>
 
 								<td class="text-right">
-									<a href="#"><span><svg fill="red" ; width="20" height="20" viewBox="0 0 20 20"
-												xmlns="http://www.w3.org/2000/svg">
-												<path fill="none" stroke="red" stroke-width="1.06" d="M16,16 L4,4">
-												</path>
-												<path fill="none" stroke="red" stroke-width="1.06" d="M16,4 L4,16">
-												</path>
-											</svg></span>
-
+									<a href="#">
+										<span>
+											<svg fill="red" ; width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<path fill="none" stroke="red" stroke-width="1.06" d="M16,16 L4,4"></path>
+												<path fill="none" stroke="red" stroke-width="1.06" d="M16,4 L4,16"></path>
+											</svg>
+										</span>
+									</a>
 								</td>
 							</tr>
-						<?php } ?>
+						<?php }} ?>
 						</tbody>
 					</table>
 				</div>
@@ -82,29 +84,51 @@
 				<div class="order-summary">
 					<div class="order-col">
 						<div><strong>Tạm tính</strong></div>
-						<div>1.050.000đ</div>
+						<div>
+							<?php 
+                                if(isset($_SESSION['subTotal']))
+                                    echo number_format($_SESSION['subTotal'], 0, '.', '.') . ' ₫';                                                                                    
+							?> 
+						</div>
 					</div>
 
 					<div class="order-col">
-						<div><strong>Giảm giá</strong></div>
-						<div>50.000đ</div>
+						<div><strong>Phí vận chuyển</strong></div>
+						<div>Miễn phí</div>
 					</div>
 
 					<hr style="size: 10px;">
 
 					<div class="order-col">
 						<div><strong>Tổng tiền</strong></div>
-						<div><strong class="order-total">1.000.000đ</strong></div>
+						<div><strong class="order-total">
+							<?php 
+                                if(isset($_SESSION['subTotal']))
+                                    echo number_format($_SESSION['subTotal'], 0, '.', '.') . ' ₫';                                                                                    
+							?> </strong></div>
 					</div>
 				</div>
 
-				
-				<button class="check-out">Thanh toán</button>
+				<a href="
+						<?php 
+                            if(!isset($_SESSION["email"])){
+                                echo './index.php?page=DangNhap';
+                            } 
+                            else{
+                                echo './index.php?page=ThanhToan';
+                            }
+                        ?>">
+					<span class="check-out">
+						Thanh toán
+					</span>
+				</a>
 			</div>
 
 		</div>
-		<form>
 		<!-- /row -->
+
+		<form>
+		
 	</div>
 	<!-- /container -->
 </div>
