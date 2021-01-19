@@ -123,17 +123,6 @@
 			$input.change();
 		})
 	});
-
-	var priceInputMax = document.getElementById('price-max'),
-			priceInputMin = document.getElementById('price-min');
-
-	priceInputMax.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});
-
-	priceInputMin.addEventListener('change', function(){
-		updatePriceSlider($(this).parent() , this.value)
-	});	
 	
 })(jQuery);
 
@@ -153,10 +142,11 @@ function cartAction(action, product_id)
 		},
     	dataType: "json",	
 		success: function(data){
-			$('#cart-list').html(data.products);
-			$('#subTotal').html(data.subtotal);
+			$('#dsSanPham-DropDown').html(data.productsDropDown);
+			$('#tamTinh-GioHang-DropDown, #tamTinh-GioHang, #tongTien-GioHang').html(data.subtotal);
 			$('#slSanPham1, #slSanPham2').html(data.qty);
-			$('#sectionGioHang').load(" #sectionGioHang");					
+			$('#gioHang').html(data.products);
+			$('#sectionThanhToan').load(' #sectionThanhToan');			
 			if (action === 'add')
 				$( "div#alert-boxAdd" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
 			else
@@ -168,5 +158,61 @@ function cartAction(action, product_id)
 	});	
 }
 
+function validateFormDangKy()
+{
+    var last_name = $('#last-name').val();
+    var first_name = $('#first-name').val();
+    var email = $('#email').val();
+    var address = $('#address').val();
+    var phone = $('#phone').val();
+    var password = $('#password').val();
+	var confirm_password = $('#confirm-password').val();
 
+    var prefix = email.substring(email.lastIndexOf("@") + 1);
+    var regExp = /^(0[234][0-9]{8}|1[89]00[0-9]{4})$/;
+	var flag = 1;
+	
+    if (last_name == ''){
+        $('#last-name').css('border-color', "red");
+        flag = 0;
+    }
+    if (first_name == '')
+    {
+		$('#first-name').css('border-color', "red");
+        flag = 0;
+    }
+    if (address == '')
+    {
+		$('#address').css('border-color', "red");
+        flag = 0;
+    }
+    if (!regExp.test(phone))
+    {
+        $('#phone').css('border-color', "red");
+        flag = 0;
+    }
+    if (prefix == "")
+    {
+        $('#email').css('border-color', "red");
+        flag = 0;
+    }
+	if(password == ''){
+		$('#password').css('border-color', "red");
+		flag = 0;
+	}
+	if(confirm_password == ''){
+		$('#confirm-password').css('border-color', "red");
+		flag = 0;
+	}
+	if(password != confirm_password){
+		$('#confirm-password').css('border-color', "red");
+		flag = 0;
+	}
 
+	
+
+    if(flag == 1)
+        return true;
+    else
+        return false;
+}

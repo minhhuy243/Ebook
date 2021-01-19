@@ -68,6 +68,13 @@ Table OF Contents
   display: none;
 }
 
+.notification-success {
+  color: #3c763d;
+  margin: 100px 50px;
+  border-color: #d6e9c6;
+  text-align: center;
+}
+
 .failure {
   color: #a94442;
   background-color: #f2dede;
@@ -751,7 +758,7 @@ textarea.input {
   top: 0;
   bottom: 0;
   left: 0px;
-  width: 60%;
+  width: 40%;
   background: #D10024;
   opacity: 0.9;
   -webkit-transform: skewX(-45deg);
@@ -814,11 +821,13 @@ textarea.input {
 
 #hot-deal.section {
   padding: 60px 0px;
-  margin: 30px 0px;
+  margin: 30px 100px;
   background-color: #E4E7ED;
-  background-image: url('../img/hotdeal.png');
+  background-image: url('../images/hotdeal.jpg');
   background-position: center;
   background-repeat: no-repeat;
+  height: 500px;
+  
 }
 
 .hot-deal {
@@ -897,7 +906,7 @@ textarea.input {
   position: relative;
 }
 
-.product .product-img>img {
+.product .product-img>a, img {
   width: 100%;
 }
 
@@ -1956,6 +1965,12 @@ textarea.input {
   margin-top: 30px;
 }
 
+.order-details .checkout-submit {
+  padding: 12px 150px;
+  display: block;
+  margin: auto;
+}
+
 /*=========================================================
 	10 -> NEWSLETTER
 ===========================================================*/
@@ -2245,6 +2260,9 @@ textarea.input {
 }
 
 .check-out {
+  display: inline-block;
+  text-align: center;
+  line-height: 35px;
   position: relative;
   border: 2px solid #D10024;
   height: 40px;
@@ -2266,3 +2284,66 @@ textarea.input {
   background-color: #FFF;
   width: 450px;
 }
+
+.input-ThanhToan{
+  height: 40px;
+  padding: 0px 15px;
+  border: 1px solid #E4E7ED;
+  background-color: #FFF;
+  width: 550px;
+}
+
+.notification-error{
+  margin: 100px 50px;
+  text-align: center;
+  color: #D10024;
+ 
+}
+
+.errorMessage{
+  text-align: center;
+  color: #D10024;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1E1F29;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+

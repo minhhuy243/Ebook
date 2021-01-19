@@ -15,7 +15,9 @@
 						if(isset($_GET["error"]))
 						{				
 							if($_GET["error"] == "TaiKhoanTonTai")		
-								echo '<p class="error" > Tên tài khoản đã tồn tại </p>';
+								echo '<p class="errorMessage" > Tên tài khoản đã tồn tại </p>';
+							elseif($_GET["error"] == "TaiKhoanChuaXacMinh")
+								echo '<p class="errorMessage" > Tên tài khoản chưa được xác minh. Vui lòng kiểm tra Email </p>';
 						}
 												
 					?>
@@ -50,7 +52,7 @@
 							<span id='messagePassword'></span>
 						</div>
 
-						<p class="error" id="message-error"> </p>
+						<p class="errorMessage" id="message-error"> </p>
 						<div class="g-recaptcha" data-sitekey="6LdctyUaAAAAABmvABiZXkKfBU_OScZLrk1hdpEs" style="width: 340px; padding: 15px 15px; margin: auto;"></div>
 						
 						<button type="submit" name="submitFrmDK" id="submitFrmDK" class="primary-btn order-submit">Đăng Ký</button>

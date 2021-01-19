@@ -3,7 +3,10 @@
 		<div class="product-img">
 			<a href="<?php echo 'index.php?page=ChiTiet&id=' . $row['Product_Id'] ?>">
 				<img src="<?php echo $row['Avatar']; ?>" alt="">
-			</a>			
+			</a>
+			<div class="product-label">
+				<span class="new">TOP</span>
+			</div>
 		</div>
 
 		<div class="product-body">

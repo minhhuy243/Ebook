@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include '..\DBConnect.php';	
+include '../DBConnect.php';	
 
 
 if(isset($_POST['action'])){ 
@@ -12,10 +12,10 @@ if(isset($_POST['action'])){
     switch($_POST['action']){
         case 'add':
             if(isset($_SESSION['cart'][$product_id])){
-                //if($quantity == 1)          
+                if($quantity == 1)          
                     $_SESSION['cart'][$product_id]['quantity']++;
-                //else
-                   // $_SESSION['cart'][$product_id]['quantity'] += $quantity;
+                else
+                   $_SESSION['cart'][$product_id]['quantity'] += $quantity;
             }
                 
             else{                  
@@ -45,17 +45,21 @@ if(isset($_POST['action'])){
     }      
 }	
 			
-$output = '';
+$dsSanPham_DropDown = '';
+$dsSanPham = '';
+$dsSanPham_ThanhToan = '';
 $tongtien = 0;
 
 if(isset($_SESSION['cart']))
 {
     foreach ($_SESSION['cart'] as $key => $value) 
     {																													
-        $output .= 
+        $dsSanPham_DropDown .= 
         '<div class="product-widget">
             <div class="product-img">
-                <img src="' . $value['avatar'] . '"' .  'alt="">
+                <a href="index.php?page=ChiTiet&id=' . $key . '">' .
+                    '<img src="' . $value['avatar'] . '"' .  'alt="">
+                </a>
             </div>
 
             <div class="product-body">
@@ -68,6 +72,64 @@ if(isset($_SESSION['cart']))
             <button class="delete" onclick="cartAction(\'remove\',\'' . $key . '\')" ><i class="fa fa-close"></i></button>
         </div>';
 
+
+        $dsSanPham .= '
+        <tr>
+	        <td>
+                <a href="#">
+                    <img src="' . $value['avatar'] . '" class="img-thumbnail">
+                </a>
+	        </td>
+
+            <td>
+            
+                <p style="color: #999;">'
+                    . $value['category_name'] .
+                '</p>
+                <a class="tenSanPham-GioHang" href="index.php?page=ChiTiet&id=' . $key . '"
+                    style="font-size: large;">'
+                    . $value['name'] .
+                '</a>
+                <p style="color: #999;">'
+                    . $value['author'] .
+                '</p>
+	        </td>
+
+            <td>
+                <div class="input-number">
+                    <input type="number" value="' . $value['quantity'] . '">
+                    <span class="qty-up">+</span>
+                    <span class="qty-down">-</span>
+                </div>
+            </td>
+
+            <td class="text-center">
+                <div class="price-wrap">
+                    <var class="price">'
+                        . number_format($value['price'], 0, '.', '.') . ' ₫' .
+                    '</var>
+                </div>
+            </td>
+
+            <td class="text-center">
+                <strong class="tongTien1SP-GioHang">'
+                    . number_format($value['price'] * $value['quantity'], 0, '.', '.') . ' ₫' . 
+                '</strong>
+            </td>
+
+            <td class="text-right">
+                <a href="#" id="removeProduct-Cart" onclick="cartAction(\'remove\', \'' . $key .  '\')">
+                    <span>
+                        <svg fill="red" ; width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="none" stroke="red" stroke-width="1.06" d="M16,16 L4,4"></path>
+                            <path fill="none" stroke="red" stroke-width="1.06" d="M16,4 L4,16"></path>
+                        </svg>
+                    </span>
+                </a>
+            </td>
+        </tr>';
+
+
         $tongtien += $value['price'] * $value['quantity'];
     }
 
@@ -76,7 +138,8 @@ if(isset($_SESSION['cart']))
 
 $slSanPham = count($_SESSION['cart']);
 
-$data = array('products' => $output, 
+$data = array('productsDropDown' => $dsSanPham_DropDown, 
+              'products' => $dsSanPham,
               'subtotal' => number_format($tongtien, 0, '.', '.'),
               'qty' => $slSanPham,
             );

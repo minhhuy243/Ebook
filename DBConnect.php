@@ -47,7 +47,6 @@ function LoadData($sql)
     return $result;
 }
 
-
 function Insert($sql)
 {
     global $conn;

@@ -17,11 +17,11 @@
 						if(isset($_GET["error"]))
 						{		
 							if($_GET["error"] == "ChuaXacMinh")					
-								echo '<p class="error"> Vui lòng kiểm tra Email của bạn để xác minh tài khoản </p>';
+								echo '<p class="errorMessage"> Vui lòng kiểm tra Email của bạn để xác minh tài khoản </p>';
 							elseif($_GET["error"] == "ChuaTonTai")
-								echo '<p class="error"> Tài khoản không tồn tại </p>';
+								echo '<p class="errorMessage"> Tài khoản không tồn tại </p>';
 							elseif($_GET["error"] == "txbRong")
-								echo '<p class="error"> Vui lòng nhập đầy đủ thông tin </p>';
+								echo '<p class="errorMessage"> Vui lòng nhập đầy đủ thông tin </p>';
 						}						
 					?>
 					

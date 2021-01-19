@@ -100,11 +100,9 @@
 
     if($current_page >= $total_page){
         $current_page = $total_page;
-        //echo $current_page;
     }
     else if($current_page <= 1){
         $current_page = 1;
-        //echo $current_page;
     }
 
     #Tính records bắt đầu
@@ -116,15 +114,10 @@
     #Nối câu truy vấn với LIMIT   
     $sql .= " LIMIT $start, $limit";
     #Truy vấn để lấy dữ liệu tương ứng
-    $result = LoadData($sql);
+    $result = LoadData($sql);   
 
-    #Tạo biến output là chuỗi để lưu các thẻ HTML
-    $output = '';      
-    
-    #Lần lượt nối các Record vào chuỗi $output
-    foreach($result as $key => $row)
-    {
-        $output .= include '.\templates\mauSanPham.php';
+    foreach ($result as $row) {
+        include './templates/mauSanPham.php';
     }
 
     #Tạo các SESSION để sử dụng cho templates/mauSoTrang.php

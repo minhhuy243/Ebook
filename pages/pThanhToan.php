@@ -6,7 +6,7 @@
 ?>
 
 <!-- SECTION -->
-<div class="section">
+<div class="section" id="sectionThanhToan">
 	<!-- container -->
 	<div class="container">
 
@@ -16,7 +16,7 @@
 
 				<?php 
 					if(!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0 )
-						echo '<h2 class="error"> BẠN CHƯA CÓ SẢN PHẨM NÀO TRONG GIỎ HÀNG </h2>';
+						echo '<h2 class="notification-error"> BẠN CHƯA CÓ SẢN PHẨM NÀO TRONG GIỎ HÀNG </h2>';
 					else{
 					
 				?>

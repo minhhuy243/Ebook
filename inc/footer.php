@@ -6,58 +6,43 @@
 				<div class="container">
 					<!-- row -->
 					<div class="row">
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<h3 class="footer-title">Về chúng tôi</h3>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><a href="#"><i class="fa fa-map-marker"></i>227 Nguyễn Văn Cừ, Phường 4, Quận 5, TP. Hồ Chí Minh</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+1900 0000</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>admin@ebook.com</a></li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
+								<h3 class="footer-title">Dịch vụ</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Điều khoản sử dụng</a></li>
+									<li><a href="#">Chính sách bảo mật</a></li>
+									<li><a href="#">Giới thiệu EBook</a></li>
+									<li><a href="#">Hệ thống trung tâm - nhà sách</a></li>
 								</ul>
 							</div>
 						</div>
 
 						<div class="clearfix visible-xs"></div>
 
-						<div class="col-md-3 col-xs-6">
+						<div class="col-md-4 col-xs-6">
 							<div class="footer">
-								<h3 class="footer-title">Information</h3>
+								<h3 class="footer-title">Hỗ trợ</h3>
 								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
+									<li><a href="#">Chính sách đổi trả - hoàn tiền</a></li>
+									<li><a href="#">Chính sách khách sỉ</a></li>
+									<li><a href="#">Phương thức vận chuyển</a></li>
+									<li><a href="#">Phương thức thanh toán và xuất HĐ</a></li>
 								</ul>
 							</div>
 						</div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Service</h3>
-								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
-								</ul>
-							</div>
-						</div>
+						
 					</div>
 					<!-- /row -->
 				</div>
@@ -80,7 +65,7 @@
 								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
 							</ul>
 							<span class="copyright">
-								 <a href="https://templatespoint.net" target="_blank">TemplatesPoint</a>
+								 <a href="./index.php" target="_blank">EBook</a>
 							</span>
 						</div>
 					</div>

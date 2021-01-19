@@ -53,7 +53,7 @@
             $sql = "SELECT * FROM user WHERE Email = '$email' AND Verified = '0'";
             $result = LoadData($sql);
             if(count($result) > 0){
-                $_SESSION['isVerified'] = "false";
+                header('Location: ../index.php?page=DangKy&error=TaiKhoanChuaXacMinh');
             }
             else{
                 $password = $_POST['password'];

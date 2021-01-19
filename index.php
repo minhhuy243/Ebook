@@ -14,11 +14,10 @@
 
 		<title>EBook - Mua sách trực tuyến</title>
 		<link rel="shortcut icon" href="admin\assets\images\ebook-logo.ico">
-
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
+		<link rel="shortcut icon" href="images/ebook-logo.ico">
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
 
@@ -37,6 +36,7 @@
 
 		
     </head>
+	
 	<body>
 	
 		
@@ -99,6 +99,7 @@
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		
 		<script>
 			window.onscroll = function() {myFunction()};
 
@@ -176,7 +177,6 @@
 				
 			});
 		</script>
-
 
 		<script>
 			
@@ -284,5 +284,6 @@
 			});
 		</script>
 		
+	
 	</body>
 </html>
