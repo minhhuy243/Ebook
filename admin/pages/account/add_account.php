@@ -20,22 +20,32 @@
     <form style="margin: 0 auto; width:300px; font-size: 14px " action="pages/account/addHandle.php" method="get">
     
         <fieldset>
-            Name
-            <input style="margin-bottom: 7px" class="form-control" type="text" name="txtDisplay_name"  />
+            First Name
+            <input style="margin-bottom: 7px" class="form-control" type="text" name="txtFirst_name" required="" placeholder="Enter your first name"  />
             <input type="hidden" name="id"  />
             
         </fieldset>
         <fieldset>
+            Last Name
+            <input style="margin-bottom: 7px" class="form-control" type="text" name="txtLast_name" required="" placeholder="Enter your last name"  />
+            
+        </fieldset>
+        <fieldset>
             Email
-            <input style="margin-bottom: 7px" class="form-control"  type="text" name="txtEmail"   />
+            <input style="margin-bottom: 7px" class="form-control"  type="text" name="txtEmail" required="" placeholder="Enter your email"  />
         </fieldset>
         <fieldset>
             Password
-            <input style="margin-bottom: 7px" class="form-control"  type="password" name="txtPassword"   />
+            <input style="margin-bottom: 7px" class="form-control"  type="password" name="txtPassword"  required="" placeholder="Enter your password" />
+        </fieldset>
+        <fieldset>
+            Address
+            <input style="margin-bottom: 7px; word-wrap=break-word;" class="form-control" type="text" name="txtAddress" required="" placeholder="Enter your address"  />
+            
         </fieldset>
         <fieldset>
             Phone Number
-            <input style="margin-bottom: 7px" class="form-control"  type="text" name="txtPhonenumber"   />
+            <input style="margin-bottom: 7px" class="form-control"  type="text" name="txtPhonenumber" required="" placeholder="Enter your phone number"  />
         </fieldset>
         <fieldset>
             Role

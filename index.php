@@ -13,6 +13,8 @@
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		<title>EBook - Mua sách trực tuyến</title>
+		<link rel="shortcut icon" href="admin\assets\images\ebook-logo.ico">
+
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
