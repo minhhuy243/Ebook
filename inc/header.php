@@ -21,7 +21,7 @@
                                 . $_SESSION["display_name"] .
                                 '</a>
                                 <div class="dropdown-content">
-                                    <a href="href="/ebook/admin">Trang quản lý Administrator</a>
+                                    <a href="/ebook/admin">Trang quản lý Administrator</a>
                                     <a href="./pages-handle/xlDangXuat.php">Đăng xuất</a>
                                 </div>';
                             }
